@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>認識Vue.js框架</title>
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+    
+    <div id="app">
+        <h1>一、認識 Vue 使用流程</h1>
+        <p>
+            {{firstText}} {{firstText}}
+        </p>
+
+        <h1>二、使用v-bind</h1>
+        <p v-bind:class="textColor">這個斷落的類別使用Vue的v-bind綁定。</p>
+        <div v-bind:class="textColor">這個區塊也是使用 v-bind</div>
+        <div v-bind:style="{'font-size':fontSize + 'px'}">區塊元素，文字大小透過Vue的資料處理</div>
+        <p :style="{'font-size': fontSize + 'px'}">這個段落文字也是透過Vue的資料處理</p>
+
+        <h1>三、v-if判斷是否顯示</h1>
+        <!-- v-if會重新渲染元素(建議少用) -->
+        <div class="btn" v-if="canBuy">加入購物車</div>
+        <div class="btn" v-else="canBuy">商品已售完</div><br>
+        <!-- v-show當布林值為fales時會隱藏不會重新渲染 -->
+        <div class="btn" v-show="canBuy">加入購物車 - show</div>
+        
+        <h1>四、v-for迴圈</h1>
+        <p>網頁前端工程師需要學會的技能:</p>
+        <ul>
+            <li v-for="skill in web">{{skill}}</li>
+        </ul>
+
+        <h1>五、v-on 事件</h1>
+        <div class="btn" v-on:click="count++">打我</div>
+        <h3>被打次數:{{ count }}</h3>
+        <div class="btn" v-on:mouseover="count++">滑我</div>
+        <h3>被滑次數:{{ count }}</h3>
+    </div>
+
+    <!-- 2. 在安裝的元素外無法使用資料 -->
+     <div>
+        {{firstText}}
+     </div>
+
+    <!-- Vue.js CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
