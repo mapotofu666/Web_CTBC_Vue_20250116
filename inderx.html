@@ -35,12 +35,47 @@
 
         <h1>五、v-on 事件</h1>
         <div class="btn" v-on:click="count++">打我</div>
-        <h3>被打次數:{{ count }}</h3>
+        <h3>數字:{{ count }}</h3>
         <div class="btn" v-on:mouseover="count++">滑我</div>
-        <h3>被滑次數:{{ count }}</h3>
+        <h3>數字:{{ count }}</h3>
+        <div class="btn" @:click="count++">事件簡寫:點我</div>
+        <h3>數字:{{ count }}</h3>
+        <div class="btn" @:click.once="count++">點擊一次事件</div>
+        <h3>數字:{{ count }}</h3>
+        <div class="btn" @:click.right="count++">點擊右鍵事件</div>
+        <h3>數字:{{ count }}</h3>
+
+        <h1>六、Vue方法(函式) function等於method</h1>
+        <div class="btn" @:click="test">點擊後會呼叫測試方法</div>
+        <div class="btn" @:click="methodEvent">點擊後會獲得點擊事件的資料</div>
+        <div class="btn" @:click="getPoint($event)">點擊後儲存座標</div>
+        <p>點擊後的座標：{{ pointX }}, {{ pointY }}</p>
+
+        <h1>七、v-model</h1>
+        <p>將 HTML 的資料傳到 vue 裡面儲存或應用。</p>
+        <input type="text" v-model="inputText">
+        <p>{{ inputText }}</p>
+
+        <h2>表單練習:代辦事項</h2>
+        <!-- 送出表單事件 submit 添加 prevent 避免頁面刷新 -->
+        <form action="" @:submit.prevent="addToDoList">
+            <p>新增待辦事項：<input type="text" v-model="addToDo"></p>
+            <button type="submit">添加待辦事項</button>
+        </form>
+        <ol>
+            <li v-for="list in toDoList">{{ list }}</li>
+        </ol>
+
+        <h1>八、計算處理 computed</h1>
+        <p>監聽資料的變化，當資料有變化時才會處理。</p>
+        <input type="checkbox" name="" id="" v-model="isCheck">{{ checked }}
+
+        <h1>九、監聽 watch</h1>
+        <p>監聽資料的變化，同時可以紀錄變化前後的值</p>
+        <div class="btn" @:click="updatePoint">點擊後儲存座標</div>
     </div>
 
-    <!-- 2. 在安裝的元素外無法使用資料 -->
+    <!--  在安裝的元素外無法使用資料 -->
      <div>
         {{firstText}}
      </div>

@@ -1,29 +1,34 @@
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 微軟正黑體;
     color: #cdcdcd;
 }
 
-body{
+body {
     background: #252525;
 }
 
-h1{
+h1 {
     padding: 20px;
 }
 
-.gold{
+.gold {
     color: goldenrod;
 }
 
-.red{
-    color: indianred;
+.red {
+    color:indianred;
 }
 
-.btn{
+.btn {
     background: goldenrod;
     display: inline-block;
     margin: 5px;
     cursor: pointer;
+}
+
+input,
+button {
+    color:#252525;
 }
